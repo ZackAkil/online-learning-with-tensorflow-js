@@ -19,6 +19,9 @@
         <!-- <button onclick="stopLearning()">stop learning from me</button> -->
         <input id="learn" type="checkbox" checked> AI learning from me
     </div>
+    <div>
+        Speed<input id="speed" type="range" min="2" max="50" value="2" step="5" oninput="updateSpeed(this.value)" > 
+    </div>
 
     <p>1. Pick a circle, and follow it as best you can for about a minute</p>
 
@@ -111,6 +114,12 @@
             ctx.stroke();
         }
         var speedFactor = 2;
+
+        function updateSpeed(newSpeed){
+            speedFactor = newSpeed
+        }
+
+        parseInt(document.getElementById("speed").value)
 
         class LastNDataPoints {
             constructor(n = 5) {
